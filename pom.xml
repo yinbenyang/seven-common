@@ -21,6 +21,7 @@
         <jackson.version>2.7.5</jackson.version>
         <commons.lang.version>3.9</commons.lang.version>
         <guava.version>28.2-jre</guava.version>
+        <fastjson.version>1.2.66</fastjson.version>
     </properties>
 
     <dependencies>
@@ -62,7 +63,11 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.30</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
 
 
     </dependencies>
