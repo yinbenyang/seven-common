@@ -13,9 +13,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @description: 避免一些异常情况的工具类
@@ -23,11 +22,11 @@ import org.slf4j.LoggerFactory;
  * @date 2020-12-02 11:50
  * @version 1.0
  */
+@Slf4j
 public class Safes {
 
-    final private static Logger logger = LoggerFactory.getLogger(Safes.class);
-
     public static <K, V> Map<K, V> of(Map<K, V> source) {
+
         return Optional.ofNullable(source).orElse(new HashMap<K, V>());
     }
 
@@ -60,7 +59,7 @@ public class Safes {
         try {
             return new BigDecimal(StringUtils.trimToEmpty(source));
         } catch (Throwable t) {
-            logger.warn("未能识别的boolean类型, source:{}", source, t);
+            log.warn("未能识别的boolean类型, source:{}", source, t);
             return defaultValue;
         }
     }
@@ -72,7 +71,7 @@ public class Safes {
         try {
             return Integer.parseInt(StringUtils.trimToEmpty(source));
         } catch (Throwable t) {
-            logger.warn("未能识别的整形 {}", source);
+            log.warn("未能识别的整形 {}", source);
             return defaultValue;
         }
     }
@@ -84,7 +83,7 @@ public class Safes {
         try {
             return Long.parseLong(StringUtils.trimToEmpty(source));
         } catch (Throwable t) {
-            logger.warn("未能识别的长整形 {}", source);
+            log.warn("未能识别的长整形 {}", source);
             return defaultValue;
         }
     }
@@ -96,7 +95,7 @@ public class Safes {
         try {
             return Boolean.parseBoolean(StringUtils.trimToEmpty(source));
         } catch (Throwable t) {
-            logger.warn("未能识别的boolean类型, source:{}", source, t);
+            log.warn("未能识别的boolean类型, source:{}", source, t);
             return defaultValue;
         }
     }

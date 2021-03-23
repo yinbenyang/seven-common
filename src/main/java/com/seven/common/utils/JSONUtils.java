@@ -38,7 +38,7 @@ public class JSONUtils {
     }
 
     /**
-     * 解析JSON数组，T 必须有default constructor
+     * 解析JSON数组，T1 必须有default constructor
      * 
      * @param text JSON数组字符串
      * @param clazz
